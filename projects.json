@@ -4,6 +4,7 @@
     "status": "Prototip în lucru",
     "tone": "progress",
     "description": "Am definit și testat funcții pentru căutare, surse RSS (știri preluate automat), mai multe regiuni, combinarea limbilor, rezumate AI și notificări. Am raportat o eroare la afișarea articolelor pentru mai multe regiuni.",
+    "link": google.com
     "tags": [
       "Android",
       "RSS",
