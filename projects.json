@@ -45,32 +45,6 @@
     "link": ""
   },
   {
-    "title": "Instrumente AI locale",
-    "status": "Configurare și verificare",
-    "tone": "done",
-    "description": "Am pornit LocalAI în Docker, verificat modelele și răspunsurile API și configurat Stable Diffusion WebUI. Am rezolvat probleme legate de versiunea Python și instalarea componentelor necesare.",
-    "tags": [
-      "Docker",
-      "LocalAI",
-      "Python"
-    ],
-    "tools": [
-      "Windows",
-      "Docker",
-      "LocalAI",
-      "Stable Diffusion WebUI",
-      "Python",
-      "API"
-    ],
-    "activities": [
-      "Configurarea aplicațiilor",
-      "Verificarea modelelor",
-      "Verificarea răspunsurilor API",
-      "Depanarea instalării"
-    ],
-    "link": ""
-  },
-  {
     "title": "AI Voice Studio",
     "status": "Instalare neterminată",
     "tone": "wip",
