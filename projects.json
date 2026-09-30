@@ -1,0 +1,131 @@
+[
+  {
+    "title": "Aplicația Android Puls",
+    "status": "Prototip în lucru",
+    "tone": "progress",
+    "description": "Am definit și testat funcții pentru căutare, surse RSS (știri preluate automat), mai multe regiuni, combinarea limbilor, rezumate AI și notificări. Am raportat o eroare la afișarea articolelor pentru mai multe regiuni.",
+    "tags": [
+      "Android",
+      "RSS",
+      "Testare",
+      "AI"
+    ],
+    "tools": [
+      "Android",
+      "RSS",
+      "AI"
+    ],
+    "activities": [
+      "Definirea funcțiilor",
+      "Testarea prototipului",
+      "Raportarea problemelor"
+    ]
+  },
+  {
+    "title": "MediaSorter",
+    "status": "Versiuni testate",
+    "tone": "test",
+    "description": "Am definit reguli pentru sortarea fișierelor fără internet: păstrarea folderelor, gruparea după extensie, selectarea pe grupe și confirmarea mutărilor nesigure. Am semnalat o problemă la modelul CLIP folosit pentru recunoașterea imaginilor.",
+    "tags": [
+      "Windows",
+      "Offline",
+      "CLIP"
+    ],
+    "tools": [
+      "Windows",
+      "CLIP",
+      "Sortare offline"
+    ],
+    "activities": [
+      "Definirea regulilor de sortare",
+      "Testarea versiunilor",
+      "Raportarea problemelor"
+    ]
+  },
+  {
+    "title": "Instrumente AI locale",
+    "status": "Configurare și verificare",
+    "tone": "done",
+    "description": "Am pornit LocalAI în Docker, verificat modelele și răspunsurile API și configurat Stable Diffusion WebUI. Am rezolvat probleme legate de versiunea Python și instalarea componentelor necesare.",
+    "tags": [
+      "Docker",
+      "LocalAI",
+      "Python"
+    ],
+    "tools": [
+      "Windows",
+      "Docker",
+      "LocalAI",
+      "Stable Diffusion WebUI",
+      "Python",
+      "API"
+    ],
+    "activities": [
+      "Configurarea aplicațiilor",
+      "Verificarea modelelor",
+      "Verificarea răspunsurilor API",
+      "Depanarea instalării"
+    ]
+  },
+  {
+    "title": "AI Voice Studio",
+    "status": "Instalare neterminată",
+    "tone": "wip",
+    "description": "Am pregătit un mediu Python separat (.venv), instalat PyTorch și investigat o eroare la instalarea motorului TTS, care transformă textul în vorbire. Aplicația nu a devenit funcțională.",
+    "tags": [
+      "Python",
+      "PyTorch",
+      "TTS"
+    ],
+    "tools": [
+      "Python",
+      ".venv",
+      "PyTorch",
+      "TTS"
+    ],
+    "activities": [
+      "Configurarea mediului virtual",
+      "Instalarea PyTorch",
+      "Depanarea instalării TTS"
+    ]
+  },
+  {
+    "title": "Teren digital în Unreal Engine",
+    "status": "Experiment",
+    "tone": "test",
+    "description": "Am importat o hartă digitală de relief 16-bit, de 4033 × 4033 pixeli. Am observat că terenul ieșea prea abrupt și am analizat ajustări ale înălțimilor și materialului de suprafață.",
+    "tags": [
+      "Unreal Engine 5.5",
+      "Heightmap"
+    ],
+    "tools": [
+      "Unreal Engine 5.5",
+      "Heightmap 16-bit"
+    ],
+    "activities": [
+      "Importul hărții de relief",
+      "Analiza înălțimilor",
+      "Ajustarea materialului terenului"
+    ]
+  },
+  {
+    "title": "Cerințe pentru aplicații",
+    "status": "Faza de proiectare",
+    "tone": "plan",
+    "description": "Am organizat cerințe tehnice pentru un player multimedia Windows/Android și o platformă de publicare și analiză video, inclusiv gestionarea mai multor conturi și extinderea prin module. Nu există încă implementări.",
+    "tags": [
+      "Documentare",
+      "Windows",
+      "Android"
+    ],
+    "tools": [
+      "Windows",
+      "Android",
+      "Aplicații modulare"
+    ],
+    "activities": [
+      "Documentarea cerințelor tehnice",
+      "Planificarea funcțiilor"
+    ]
+  }
+]

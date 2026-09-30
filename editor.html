@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Editor local pentru proiectele portofoliului tehnic.">
+  <title>Editor de proiecte | Portofoliu tehnic</title>
+  <link rel="stylesheet" href="editor.css">
+  <script src="editor.js" defer></script>
+</head>
+<body>
+  <main class="editor-shell">
+    <a class="back-link" href="index.html">← Înapoi la portofoliu</a>
+    <header class="editor-header">
+      <p class="eyebrow">Instrument local</p>
+      <h1>Editează proiectele</h1>
+      <p>Încarcă lista actuală, modifică proiectele și descarcă fișierul nou. Editorul lucrează în browser și nu scrie direct în GitHub.</p>
+    </header>
+
+    <section class="notice" aria-label="Instrucțiuni">
+      <strong>După ce descarci lista</strong>
+      <ol>
+        <li>Descarcă fișierul nou <code>projects.json</code>.</li>
+        <li>În repository-ul GitHub, înlocuiește fișierul vechi cu acesta.</li>
+        <li>Salvează schimbarea în GitHub; pagina publică se va actualiza după publicare.</li>
+      </ol>
+    </section>
+
+    <section class="toolbar" aria-label="Acțiuni pentru proiecte">
+      <label class="file-button">Încarcă projects.json<input id="file-input" type="file" accept=".json,application/json"></label>
+      <button id="add-project" type="button" class="button button-secondary" disabled>+ Adaugă proiect</button>
+      <button id="download" type="button" class="button button-primary" disabled>Descarcă projects.json</button>
+    </section>
+    <p id="message" class="message" role="status">Se încearcă încărcarea automată a projects.json…</p>
+    <div id="project-list" class="project-list"></div>
+  </main>
+</body>
+</html>
