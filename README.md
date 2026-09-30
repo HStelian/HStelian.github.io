@@ -5,7 +5,7 @@ Site static în HTML, CSS și JavaScript, fără servicii externe. Proiectele su
 ## Editează proiectele
 
 1. Deschide `editor.html` în browser. Dacă o deschizi de pe site-ul publicat, lista se încarcă automat. Dacă o deschizi din folderul descărcat, apasă **Încarcă projects.json** și alege fișierul din același folder.
-2. Modifică titlul, stadiul, descrierea, etichetele afișate, instrumentele folosite și activitățile tehnice. Folosește butonul **Adaugă proiect** pentru unul nou ori **Șterge** pentru a-l elimina.
+2. Modifică titlul, stadiul, descrierea, linkul opțional, etichetele, instrumentele și activitățile tehnice. Linkurile se lasă goale când proiectul nu are o pagină publică. Folosește butonul **Adaugă proiect** pentru unul nou ori **Șterge** pentru a-l elimina.
 3. Apasă **Descarcă projects.json**.
 4. În repository-ul GitHub, deschide `projects.json`, apasă butonul de editare, înlocuiește conținutul cu cel din fișierul descărcat și salvează schimbarea.
 5. Pagina se actualizează după publicarea modificării de către GitHub Pages.
@@ -14,7 +14,7 @@ Editorul nu salvează direct în GitHub și nu cere parolă sau token. Modifică
 
 ### Rezumatul instrumentelor și activităților
 
-Pagina principală adună automat instrumentele și activitățile din toate proiectele: completează aceste două câmpuri în editor pentru fiecare proiect. Elementele repetate apar o singură dată. Dacă ștergi un proiect sau scoți un instrument din listă, acesta dispare automat din rezumat după publicarea noului fișier.
+Pagina principală adună automat instrumentele și activitățile din toate proiectele: completează aceste două câmpuri în editor pentru fiecare proiect. Elementele repetate apar o singură dată. Linkul fiecărui proiect este opțional și apare pe card doar dacă este completat cu o adresă web `http://` sau `https://`. Dacă ștergi un proiect sau scoți un instrument din listă, acesta dispare automat din rezumat după publicarea noului fișier.
 
 ## Stadiile disponibile
 
@@ -53,4 +53,3 @@ Apoi deschide `http://localhost:8000`. Editorul poate fi deschis direct ca fiși
 - `editor.html` — formularul de administrare
 - `styles.css` și `editor.css` — aspectul paginilor
 - `main.js` și `editor.js` — încărcarea și editarea proiectelor
-"# HStelian.github.io" 

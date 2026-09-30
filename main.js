@@ -30,6 +30,23 @@ function makeCard(project, index) {
     chips.append(chip);
   }
   article.append(topline, title, description, chips);
+  const link = typeof project.link === 'string' ? project.link.trim() : '';
+  if (link) {
+    try {
+      const url = new URL(link);
+      if (url.protocol === 'https:' || url.protocol === 'http:') {
+        const anchor = document.createElement('a');
+        anchor.className = 'project-link';
+        anchor.href = url.href;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.textContent = 'Vezi proiectul';
+        article.append(anchor);
+      }
+    } catch {
+      // Ignore malformed or unsafe links; the project card remains visible.
+    }
+  }
   return article;
 }
 

@@ -4,7 +4,6 @@
     "status": "Prototip în lucru",
     "tone": "progress",
     "description": "Am definit și testat funcții pentru căutare, surse RSS (știri preluate automat), mai multe regiuni, combinarea limbilor, rezumate AI și notificări. Am raportat o eroare la afișarea articolelor pentru mai multe regiuni.",
-    "link": google.com
     "tags": [
       "Android",
       "RSS",
@@ -20,7 +19,8 @@
       "Definirea funcțiilor",
       "Testarea prototipului",
       "Raportarea problemelor"
-    ]
+    ],
+    "link": ""
   },
   {
     "title": "MediaSorter",
@@ -41,7 +41,8 @@
       "Definirea regulilor de sortare",
       "Testarea versiunilor",
       "Raportarea problemelor"
-    ]
+    ],
+    "link": ""
   },
   {
     "title": "Instrumente AI locale",
@@ -66,7 +67,8 @@
       "Verificarea modelelor",
       "Verificarea răspunsurilor API",
       "Depanarea instalării"
-    ]
+    ],
+    "link": ""
   },
   {
     "title": "AI Voice Studio",
@@ -88,7 +90,8 @@
       "Configurarea mediului virtual",
       "Instalarea PyTorch",
       "Depanarea instalării TTS"
-    ]
+    ],
+    "link": ""
   },
   {
     "title": "Teren digital în Unreal Engine",
@@ -107,7 +110,8 @@
       "Importul hărții de relief",
       "Analiza înălțimilor",
       "Ajustarea materialului terenului"
-    ]
+    ],
+    "link": ""
   },
   {
     "title": "Cerințe pentru aplicații",
@@ -127,6 +131,7 @@
     "activities": [
       "Documentarea cerințelor tehnice",
       "Planificarea funcțiilor"
-    ]
+    ],
+    "link": ""
   }
 ]
