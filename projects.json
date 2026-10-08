@@ -173,14 +173,14 @@
   {
     "title": "AI-Workspace-Android",
     "id": "AI-Workspace-Android",
-    "domain": "aplicatii-si-software",
+    "domain": "Aplicații și software",
     "status": "Prototip în lucru",
     "tone": "progress",
     "description": "Aplicație Android modulară pentru utilizarea modelelor AI locale și prin API, gestionarea proiectelor și conversațiilor, cu suport pentru agenți AI, automatizări și extensibilitate prin pluginuri. Proiect aflat în dezvoltare activă, în etapa Alpha.",
     "detailsPage": true,
     "demo": "",
-    "link": "https://github.com/HStelian/AI-Workspace-Android",
-    "downloads": [],
+    "link": "",
+    "downloads": [AI-Workspace-Android | Android APK | https://github.com/HStelian/HStelian.github.io/blob/main/media/aplicatii-si-software/AI-Workspace-Android/AI-Workspace.apk],
     "images": [],
     "tags": [
       "Android",
