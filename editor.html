@@ -14,15 +14,15 @@
     <header class="editor-header">
       <p class="eyebrow">Instrument local</p>
       <h1>Editează proiectele</h1>
-      <p>Adaugă proiecte din orice domeniu și completează doar materialele pe care le ai: demo, repository, aplicație descărcabilă sau imagini.</p>
+      <p>Adaugă proiecte din orice domeniu. Domeniul este liber, iar paginile detaliate pot fi activate separat pentru fiecare proiect.</p>
     </header>
 
     <section class="notice" aria-label="Instrucțiuni">
-      <strong>Cum publici poze și aplicații</strong>
+      <strong>Materialele proiectului</strong>
       <ol>
-        <li>Adaugă fișierele în repository, de exemplu în folderele <code>images/</code> sau <code>downloads/</code>.</li>
-        <li>În câmpurile proiectului scrie calea, de exemplu <code>images/ecran.png</code> sau <code>downloads/app.apk</code>.</li>
-        <li>Descarcă <code>projects.json</code>, apoi înlocuiește fișierul vechi din repository și publică schimbarea.</li>
+        <li>Fiecare proiect are un folder sugerat în <code>media/domeniu/proiect/</code>.</li>
+        <li>Încarcă acolo poze, capturi și fișiere de aplicații, apoi adaugă căile lor în câmpurile proiectului.</li>
+        <li>Demo-ul web, repository-ul și pagina detaliată sunt opționale.</li>
       </ol>
     </section>
 
@@ -32,7 +32,7 @@
       <button id="download" type="button" class="button button-primary" disabled>Descarcă projects.json</button>
     </section>
     <p id="message" class="message" role="status">Se încearcă încărcarea automată a projects.json…</p>
-    <p class="editor-hint">Pentru fișiere mari, folosește o pagină GitHub Releases și adaugă linkul descărcării. Editorul modifică lista, iar fișierele imagine și aplicație se urcă separat în repository.</p>
+    <p class="editor-hint">Fișierele mari pot fi găzduite separat, de exemplu într-o versiune GitHub Releases. După editare, descarcă și publică noul <code>projects.json</code>.</p>
     <div id="project-list" class="project-list"></div>
   </main>
 </body>

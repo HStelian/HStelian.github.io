@@ -33,6 +33,16 @@ function safeUrl(value) {
   }
 }
 
+function projectId(project) {
+  if (project.id) return String(project.id);
+  return String(project.title || 'proiect')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 function addAction(actions, value, label, className = '') {
   const url = safeUrl(value);
   if (!url) return;
@@ -51,7 +61,24 @@ function addAction(actions, value, label, className = '') {
 
 function makeCard(project, index) {
   const article = document.createElement('article');
-  article.className = `project-card${index === 0 ? ' project-featured' : ''}`;
+  const canOpenDetails = project.detailsPage === true;
+  article.className = `project-card${index === 0 ? ' project-featured' : ''}${canOpenDetails ? ' project-card-openable' : ''}`;
+  const detailsUrl = `project.html?id=${encodeURIComponent(projectId(project))}`;
+  if (canOpenDetails) {
+    article.tabIndex = 0;
+    article.setAttribute('role', 'link');
+    article.setAttribute('aria-label', `Deschide detaliile pentru ${project.title || 'proiect'}`);
+    const openDetails = () => { window.location.href = detailsUrl; };
+    article.addEventListener('click', (event) => {
+      if (!event.target.closest('a, button')) openDetails();
+    });
+    article.addEventListener('keydown', (event) => {
+      if ((event.key === 'Enter' || event.key === ' ') && event.target === article) {
+        event.preventDefault();
+        openDetails();
+      }
+    });
+  }
 
   const topline = document.createElement('div');
   topline.className = 'project-topline';
@@ -111,6 +138,7 @@ function makeCard(project, index) {
 
   const actions = document.createElement('div');
   actions.className = 'project-actions';
+  if (canOpenDetails) addAction(actions, detailsUrl, 'Deschide pagina proiectului', 'action-details');
   addAction(actions, project.demo, 'Deschide demo-ul', 'action-demo');
   addAction(actions, project.link, 'Vezi codul / repository-ul');
   for (const item of Array.isArray(project.downloads) ? project.downloads : []) {

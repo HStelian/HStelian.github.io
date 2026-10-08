@@ -18,6 +18,21 @@ function setMessage(text, kind = '') {
   message.className = `message${kind ? ` ${kind}` : ''}`;
 }
 
+function slugify(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function assetFolder(project) {
+  const domain = slugify(project.domain) || 'alte-domenii';
+  const projectId = slugify(project.id || project.title) || 'proiect-nou';
+  return `media/${domain}/${projectId}/`;
+}
+
 function listText(items, fields) {
   return (Array.isArray(items) ? items : []).map((item) => fields.map((field) => item?.[field] || '').join(' | ')).join('\n');
 }
@@ -62,6 +77,19 @@ function makeField(labelText, value, onChange, type = 'input', hint = '') {
   return wrapper;
 }
 
+function makeToggle(labelText, checked, onChange) {
+  const wrapper = document.createElement('label');
+  wrapper.className = 'toggle-field';
+  const control = document.createElement('input');
+  control.type = 'checkbox';
+  control.checked = checked === true;
+  control.addEventListener('change', () => onChange(control.checked));
+  const text = document.createElement('span');
+  text.textContent = labelText;
+  wrapper.append(control, text);
+  return wrapper;
+}
+
 function render() {
   list.replaceChildren();
   projects.forEach((project, index) => {
@@ -83,19 +111,33 @@ function render() {
     });
     heading.append(title, remove);
     card.append(heading);
-    card.append(makeField('Titlu', project.title, (value) => { project.title = value; }));
-    card.append(makeField('Domeniu', project.domain, (value) => { project.domain = value.trim() || 'Altele'; }, 'input', 'Exemple: Software, AI, Jocuri și 3D, Animație, Hardware, Foto.'));
+    card.append(makeField('Titlu', project.title, (value) => {
+      project.title = value;
+      if (!project.id) project.id = slugify(value);
+      folderHint.textContent = `Folder pentru fișierele acestui proiect: ${assetFolder(project)}`;
+    }));
+    const folderHint = document.createElement('p');
+    folderHint.className = 'asset-folder-hint';
+    folderHint.textContent = `Folder pentru fișierele acestui proiect: ${assetFolder(project)}`;
+    card.append(makeField('Domeniu', project.domain, (value) => {
+      project.domain = value.trim() || 'Altele';
+      folderHint.textContent = `Folder pentru fișierele acestui proiect: ${assetFolder(project)}`;
+    }, 'input', 'Scrie orice domeniu dorești. Site-ul îl adaugă automat ca filtru.'));
+    card.append(folderHint);
     card.append(makeField('Stadiu', project.status, (value) => { project.status = value; }));
     card.append(makeField('Culoarea etichetei', project.tone || 'plan', (value) => { project.tone = value; }, 'select'));
     card.append(makeField('Descriere', project.description, (value) => { project.description = value; }, 'textarea'));
+    card.append(makeToggle('Deschide o pagină detaliată când se apasă pe acest proiect', project.detailsPage, (value) => {
+      project.detailsPage = value;
+    }));
     card.append(makeField('Demo de interfață sau aplicație web (opțional)', project.demo, (value) => { project.demo = value.trim(); }, 'input', 'Poți pune o pagină web publicată, un demo live sau o pagină locală din repository.'));
     card.append(makeField('Repository / pagină cu detalii (opțional)', project.link, (value) => { project.link = value.trim(); }));
     card.append(makeField('Descărcări (câte una pe rând)', listText(project.downloads, ['label', 'platform', 'url']), (value) => {
       project.downloads = parseLines(value, ['label', 'platform', 'url']);
-    }, 'textarea', 'Format: Nume fișier | Windows / Android / ZIP | cale sau link. Exemplu: Aplicația | Windows EXE | downloads/aplicatia.exe'));
+    }, 'textarea', 'Format: Nume fișier | Windows / Android / ZIP | cale sau link. În repository: folderul afișat mai sus + numele fișierului.'));
     card.append(makeField('Imagini / capturi (câte una pe rând)', listText(project.images, ['src', 'caption', 'alt']), (value) => {
       project.images = parseLines(value, ['src', 'caption', 'alt']);
-    }, 'textarea', 'Format: cale sau link | descriere scurtă | text pentru cititoare de ecran. Exemplu: images/demo.png | Ecran principal | Fereastra principală a aplicației'));
+    }, 'textarea', 'Format: cale sau link | descriere scurtă | text alternativ. Urcă poza în folderul afișat mai sus, apoi scrie calea ei aici.'));
     card.append(makeField('Etichete (separate prin virgulă)', (project.tags || []).join(', '), (value) => {
       project.tags = value.split(',').map((item) => item.trim()).filter(Boolean);
     }));
@@ -117,10 +159,12 @@ function loadData(data) {
   }
   projects = data.map((item) => ({
     title: String(item.title || ''),
+    id: String(item.id || ''),
     domain: String(item.domain || 'Altele'),
     status: String(item.status || ''),
     tone: toneOptions.some(([value]) => value === item.tone) ? item.tone : 'plan',
     description: String(item.description || ''),
+    detailsPage: item.detailsPage === true,
     demo: String(item.demo || ''),
     link: String(item.link || ''),
     downloads: Array.isArray(item.downloads) ? item.downloads.map((entry) => ({ label: String(entry.label || ''), platform: String(entry.platform || ''), url: String(entry.url || '') })) : [],
@@ -150,13 +194,22 @@ fileInput.addEventListener('change', () => {
 });
 
 addButton.addEventListener('click', () => {
-  projects.push({ title: '', domain: 'Altele', status: 'Prototip în lucru', tone: 'progress', description: '', demo: '', link: '', downloads: [], images: [], tags: [], tools: [], activities: [] });
+  projects.push({ title: '', id: '', domain: 'Altele', status: 'Prototip în lucru', tone: 'progress', description: '', detailsPage: false, demo: '', link: '', downloads: [], images: [], tags: [], tools: [], activities: [] });
   render();
   list.lastElementChild?.querySelector('input')?.focus();
   setMessage('Proiect nou adăugat. Completează câmpurile și descarcă lista.', 'success');
 });
 
 downloadButton.addEventListener('click', () => {
+  const usedIds = new Set();
+  for (const project of projects) {
+    const base = slugify(project.id || project.title) || 'proiect';
+    let candidate = base;
+    let suffix = 2;
+    while (usedIds.has(candidate)) candidate = `${base}-${suffix++}`;
+    project.id = candidate;
+    usedIds.add(candidate);
+  }
   const blob = new Blob([`${JSON.stringify(projects, null, 2)}\n`], { type: 'application/json;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');

@@ -21,7 +21,12 @@
       "Raportarea problemelor"
     ],
     "link": "",
-    "domain": "Aplicații și software"
+    "domain": "Aplicații și software",
+    "id": "puls-android",
+    "detailsPage": true,
+    "demo": "",
+    "downloads": [],
+    "images": []
   },
   {
     "title": "MediaSorter",
@@ -44,7 +49,12 @@
       "Raportarea problemelor"
     ],
     "link": "",
-    "domain": "Fișiere și automatizare"
+    "domain": "Fișiere și automatizare",
+    "id": "media-sorter",
+    "detailsPage": true,
+    "demo": "",
+    "downloads": [],
+    "images": []
   },
   {
     "title": "Instrumente AI locale",
@@ -71,7 +81,12 @@
       "Depanarea instalării"
     ],
     "link": "",
-    "domain": "AI și modele locale"
+    "domain": "AI și modele locale",
+    "id": "instrumente-ai-locale",
+    "detailsPage": false,
+    "demo": "",
+    "downloads": [],
+    "images": []
   },
   {
     "title": "AI Voice Studio",
@@ -95,7 +110,12 @@
       "Depanarea instalării TTS"
     ],
     "link": "",
-    "domain": "Audio și AI"
+    "domain": "Audio și AI",
+    "id": "ai-voice-studio",
+    "detailsPage": false,
+    "demo": "",
+    "downloads": [],
+    "images": []
   },
   {
     "title": "Teren digital în Unreal Engine",
@@ -116,7 +136,12 @@
       "Ajustarea materialului terenului"
     ],
     "link": "",
-    "domain": "Jocuri și 3D"
+    "domain": "Jocuri și 3D",
+    "id": "teren-digital-unreal",
+    "detailsPage": false,
+    "demo": "",
+    "downloads": [],
+    "images": []
   },
   {
     "title": "Cerințe pentru aplicații",
@@ -138,6 +163,11 @@
       "Planificarea funcțiilor"
     ],
     "link": "",
-    "domain": "Proiectare și documentare"
+    "domain": "Proiectare și documentare",
+    "id": "cerinte-aplicatii",
+    "detailsPage": false,
+    "demo": "",
+    "downloads": [],
+    "images": []
   }
 ]
