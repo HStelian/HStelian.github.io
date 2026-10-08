@@ -20,7 +20,8 @@
       "Testarea prototipului",
       "Raportarea problemelor"
     ],
-    "link": ""
+    "link": "",
+    "domain": "Aplicații și software"
   },
   {
     "title": "MediaSorter",
@@ -42,7 +43,35 @@
       "Testarea versiunilor",
       "Raportarea problemelor"
     ],
-    "link": ""
+    "link": "",
+    "domain": "Fișiere și automatizare"
+  },
+  {
+    "title": "Instrumente AI locale",
+    "status": "Configurare și verificare",
+    "tone": "done",
+    "description": "Am pornit LocalAI în Docker, verificat modelele și răspunsurile API și configurat Stable Diffusion WebUI. Am rezolvat probleme legate de versiunea Python și instalarea componentelor necesare.",
+    "tags": [
+      "Docker",
+      "LocalAI",
+      "Python"
+    ],
+    "tools": [
+      "Windows",
+      "Docker",
+      "LocalAI",
+      "Stable Diffusion WebUI",
+      "Python",
+      "API"
+    ],
+    "activities": [
+      "Configurarea aplicațiilor",
+      "Verificarea modelelor",
+      "Verificarea răspunsurilor API",
+      "Depanarea instalării"
+    ],
+    "link": "",
+    "domain": "AI și modele locale"
   },
   {
     "title": "AI Voice Studio",
@@ -65,7 +94,8 @@
       "Instalarea PyTorch",
       "Depanarea instalării TTS"
     ],
-    "link": ""
+    "link": "",
+    "domain": "Audio și AI"
   },
   {
     "title": "Teren digital în Unreal Engine",
@@ -85,7 +115,8 @@
       "Analiza înălțimilor",
       "Ajustarea materialului terenului"
     ],
-    "link": ""
+    "link": "",
+    "domain": "Jocuri și 3D"
   },
   {
     "title": "Cerințe pentru aplicații",
@@ -106,6 +137,7 @@
       "Documentarea cerințelor tehnice",
       "Planificarea funcțiilor"
     ],
-    "link": ""
+    "link": "",
+    "domain": "Proiectare și documentare"
   }
 ]

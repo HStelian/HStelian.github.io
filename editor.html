@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Editor local pentru proiectele personale din portofoliu.">
+  <title>Editor de proiecte | Portofoliu personal</title>
+  <link rel="stylesheet" href="editor.css">
+  <script src="editor.js" defer></script>
+</head>
+<body>
+  <main class="editor-shell">
+    <a class="back-link" href="index.html">← Înapoi la portofoliu</a>
+    <header class="editor-header">
+      <p class="eyebrow">Instrument local</p>
+      <h1>Editează proiectele</h1>
+      <p>Adaugă proiecte din orice domeniu și completează doar materialele pe care le ai: demo, repository, aplicație descărcabilă sau imagini.</p>
+    </header>
+
+    <section class="notice" aria-label="Instrucțiuni">
+      <strong>Cum publici poze și aplicații</strong>
+      <ol>
+        <li>Adaugă fișierele în repository, de exemplu în folderele <code>images/</code> sau <code>downloads/</code>.</li>
+        <li>În câmpurile proiectului scrie calea, de exemplu <code>images/ecran.png</code> sau <code>downloads/app.apk</code>.</li>
+        <li>Descarcă <code>projects.json</code>, apoi înlocuiește fișierul vechi din repository și publică schimbarea.</li>
+      </ol>
+    </section>
+
+    <section class="toolbar" aria-label="Acțiuni pentru proiecte">
+      <label class="file-button">Încarcă projects.json<input id="file-input" type="file" accept=".json,application/json"></label>
+      <button id="add-project" type="button" class="button button-secondary" disabled>+ Adaugă proiect</button>
+      <button id="download" type="button" class="button button-primary" disabled>Descarcă projects.json</button>
+    </section>
+    <p id="message" class="message" role="status">Se încearcă încărcarea automată a projects.json…</p>
+    <p class="editor-hint">Pentru fișiere mari, folosește o pagină GitHub Releases și adaugă linkul descărcării. Editorul modifică lista, iar fișierele imagine și aplicație se urcă separat în repository.</p>
+    <div id="project-list" class="project-list"></div>
+  </main>
+</body>
+</html>
