@@ -1,9 +1,16 @@
 [
   {
     "title": "Aplicația Android Puls",
+    "id": "puls-android",
+    "domain": "Aplicații și software",
     "status": "Prototip în lucru",
     "tone": "progress",
     "description": "Am definit și testat funcții pentru căutare, surse RSS (știri preluate automat), mai multe regiuni, combinarea limbilor, rezumate AI și notificări. Am raportat o eroare la afișarea articolelor pentru mai multe regiuni.",
+    "detailsPage": false,
+    "demo": "",
+    "link": "",
+    "downloads": [],
+    "images": [],
     "tags": [
       "Android",
       "RSS",
@@ -19,20 +26,20 @@
       "Definirea funcțiilor",
       "Testarea prototipului",
       "Raportarea problemelor"
-    ],
-    "link": "",
-    "domain": "Aplicații și software",
-    "id": "puls-android",
-    "detailsPage": true,
-    "demo": "",
-    "downloads": [],
-    "images": []
+    ]
   },
   {
     "title": "MediaSorter",
+    "id": "media-sorter",
+    "domain": "Fișiere și automatizare",
     "status": "Versiuni testate",
     "tone": "test",
     "description": "Am definit reguli pentru sortarea fișierelor fără internet: păstrarea folderelor, gruparea după extensie, selectarea pe grupe și confirmarea mutărilor nesigure. Am semnalat o problemă la modelul CLIP folosit pentru recunoașterea imaginilor.",
+    "detailsPage": false,
+    "demo": "",
+    "link": "",
+    "downloads": [],
+    "images": [],
     "tags": [
       "Windows",
       "Offline",
@@ -47,20 +54,20 @@
       "Definirea regulilor de sortare",
       "Testarea versiunilor",
       "Raportarea problemelor"
-    ],
-    "link": "",
-    "domain": "Fișiere și automatizare",
-    "id": "media-sorter",
-    "detailsPage": true,
-    "demo": "",
-    "downloads": [],
-    "images": []
+    ]
   },
   {
     "title": "Instrumente AI locale",
+    "id": "instrumente-ai-locale",
+    "domain": "AI și modele locale",
     "status": "Configurare și verificare",
     "tone": "done",
     "description": "Am pornit LocalAI în Docker, verificat modelele și răspunsurile API și configurat Stable Diffusion WebUI. Am rezolvat probleme legate de versiunea Python și instalarea componentelor necesare.",
+    "detailsPage": false,
+    "demo": "",
+    "link": "",
+    "downloads": [],
+    "images": [],
     "tags": [
       "Docker",
       "LocalAI",
@@ -79,20 +86,20 @@
       "Verificarea modelelor",
       "Verificarea răspunsurilor API",
       "Depanarea instalării"
-    ],
-    "link": "",
-    "domain": "AI și modele locale",
-    "id": "instrumente-ai-locale",
-    "detailsPage": false,
-    "demo": "",
-    "downloads": [],
-    "images": []
+    ]
   },
   {
     "title": "AI Voice Studio",
+    "id": "ai-voice-studio",
+    "domain": "Audio și AI",
     "status": "Instalare neterminată",
     "tone": "wip",
     "description": "Am pregătit un mediu Python separat (.venv), instalat PyTorch și investigat o eroare la instalarea motorului TTS, care transformă textul în vorbire. Aplicația nu a devenit funcțională.",
+    "detailsPage": false,
+    "demo": "",
+    "link": "",
+    "downloads": [],
+    "images": [],
     "tags": [
       "Python",
       "PyTorch",
@@ -108,20 +115,20 @@
       "Configurarea mediului virtual",
       "Instalarea PyTorch",
       "Depanarea instalării TTS"
-    ],
-    "link": "",
-    "domain": "Audio și AI",
-    "id": "ai-voice-studio",
-    "detailsPage": false,
-    "demo": "",
-    "downloads": [],
-    "images": []
+    ]
   },
   {
     "title": "Teren digital în Unreal Engine",
+    "id": "teren-digital-unreal",
+    "domain": "Jocuri și 3D",
     "status": "Experiment",
     "tone": "test",
     "description": "Am importat o hartă digitală de relief 16-bit, de 4033 × 4033 pixeli. Am observat că terenul ieșea prea abrupt și am analizat ajustări ale înălțimilor și materialului de suprafață.",
+    "detailsPage": false,
+    "demo": "",
+    "link": "",
+    "downloads": [],
+    "images": [],
     "tags": [
       "Unreal Engine 5.5",
       "Heightmap"
@@ -134,20 +141,20 @@
       "Importul hărții de relief",
       "Analiza înălțimilor",
       "Ajustarea materialului terenului"
-    ],
-    "link": "",
-    "domain": "Jocuri și 3D",
-    "id": "teren-digital-unreal",
-    "detailsPage": false,
-    "demo": "",
-    "downloads": [],
-    "images": []
+    ]
   },
   {
     "title": "Cerințe pentru aplicații",
+    "id": "cerinte-aplicatii",
+    "domain": "Proiectare și documentare",
     "status": "Faza de proiectare",
     "tone": "plan",
     "description": "Am organizat cerințe tehnice pentru un player multimedia Windows/Android și o platformă de publicare și analiză video, inclusiv gestionarea mai multor conturi și extinderea prin module. Nu există încă implementări.",
+    "detailsPage": false,
+    "demo": "",
+    "link": "",
+    "downloads": [],
+    "images": [],
     "tags": [
       "Documentare",
       "Windows",
@@ -161,13 +168,47 @@
     "activities": [
       "Documentarea cerințelor tehnice",
       "Planificarea funcțiilor"
-    ],
-    "link": "",
-    "domain": "Proiectare și documentare",
-    "id": "cerinte-aplicatii",
-    "detailsPage": false,
+    ]
+  },
+  {
+    "title": "AI-Workspace-Android",
+    "id": "a",
+    "domain": "aplicatii-si-software",
+    "status": "Prototip în lucru",
+    "tone": "progress",
+    "description": "Aplicație Android modulară pentru utilizarea modelelor AI locale și prin API, gestionarea proiectelor și conversațiilor, cu suport pentru agenți AI, automatizări și extensibilitate prin pluginuri. Proiect aflat în dezvoltare activă, în etapa Alpha.",
+    "detailsPage": true,
     "demo": "",
+    "link": "https://github.com/HStelian/AI-Workspace-Android",
     "downloads": [],
-    "images": []
+    "images": [],
+    "tags": [
+      "Android",
+      "AI",
+      "Local AI",
+      "GGUF",
+      "Offline",
+      "Multi-Agent",
+      "Modular",
+      "Alpha"
+    ],
+    "tools": [
+      "Kotlin",
+      "Jetpack Compose",
+      "Android SDK",
+      "Gradle",
+      "llama.cpp",
+      "GitHub Actions"
+    ],
+    "activities": [
+      "Dezvoltare Android",
+      "Integrare AI local",
+      "Dezvoltare UI/UX",
+      "Gestionare fișiere",
+      "Orchestrare AI",
+      "Optimizare performanță",
+      "Debugging",
+      "Testare"
+    ]
   }
 ]
