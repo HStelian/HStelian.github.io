@@ -12,6 +12,10 @@ const toneOptions = [
 ];
 let projects = [];
 let loaded = false;
+let groups = [
+  { id: 'eu', name: 'EU' },
+  { id: 'eu-ai', name: 'EU + AI' }
+];
 
 function setMessage(text, kind = '') {
   message.textContent = text;
@@ -77,6 +81,29 @@ function makeField(labelText, value, onChange, type = 'input', hint = '') {
   return wrapper;
 }
 
+function makeChoiceField(labelText, value, choices, onChange, hint = '') {
+  const wrapper = document.createElement('label');
+  wrapper.className = 'field';
+  const label = document.createElement('span');
+  label.textContent = labelText;
+  const control = document.createElement('select');
+  for (const [optionValue, text] of choices) {
+    const option = document.createElement('option');
+    option.value = optionValue;
+    option.textContent = text;
+    control.append(option);
+  }
+  control.value = value || choices[0]?.[0] || '';
+  control.addEventListener('change', () => onChange(control.value));
+  wrapper.append(label, control);
+  if (hint) {
+    const note = document.createElement('small');
+    note.textContent = hint;
+    wrapper.append(note);
+  }
+  return wrapper;
+}
+
 function makeToggle(labelText, checked, onChange) {
   const wrapper = document.createElement('label');
   wrapper.className = 'toggle-field';
@@ -122,8 +149,11 @@ function render() {
     card.append(makeField('Domeniu', project.domain, (value) => {
       project.domain = value.trim() || 'Altele';
       folderHint.textContent = `Folder pentru fișierele acestui proiect: ${assetFolder(project)}`;
-    }, 'input', 'Scrie orice domeniu dorești. Site-ul îl adaugă automat ca filtru.'));
+    }, 'input', 'Scrie orice domeniu dorești. Va apărea automat în filtre și în lista domeniilor.'));
     card.append(folderHint);
+    card.append(makeChoiceField('Categorie', project.group || 'eu', groups.map((group) => [group.id, group.name || group.id]), (value) => {
+      project.group = value;
+    }, 'Alege „EU” pentru proiecte realizate fără AI sau „EU + AI” pentru proiecte dezvoltate cu ajutorul inteligenței artificiale.'));
     card.append(makeField('Stadiu', project.status, (value) => { project.status = value; }));
     card.append(makeField('Culoarea etichetei', project.tone || 'plan', (value) => { project.tone = value; }, 'select'));
     card.append(makeField('Descriere', project.description, (value) => { project.description = value; }, 'textarea'));
@@ -161,6 +191,7 @@ function loadData(data) {
     title: String(item.title || ''),
     id: String(item.id || ''),
     domain: String(item.domain || 'Altele'),
+    group: String(item.group || 'eu'),
     status: String(item.status || ''),
     tone: toneOptions.some(([value]) => value === item.tone) ? item.tone : 'plan',
     description: String(item.description || ''),
@@ -194,7 +225,7 @@ fileInput.addEventListener('change', () => {
 });
 
 addButton.addEventListener('click', () => {
-  projects.push({ title: '', id: '', domain: 'Altele', status: 'Prototip în lucru', tone: 'progress', description: '', detailsPage: false, demo: '', link: '', downloads: [], images: [], tags: [], tools: [], activities: [] });
+  projects.push({ title: '', id: '', domain: 'Altele', group: 'eu', status: 'Prototip în lucru', tone: 'progress', description: '', detailsPage: false, demo: '', link: '', downloads: [], images: [], tags: [], tools: [], activities: [] });
   render();
   list.lastElementChild?.querySelector('input')?.focus();
   setMessage('Proiect nou adăugat. Completează câmpurile și descarcă lista.', 'success');
@@ -222,10 +253,18 @@ downloadButton.addEventListener('click', () => {
   setMessage('Fișierul projects.json a fost descărcat. Încarcă-l în repository ca să publici schimbările.', 'success');
 });
 
-fetch(new URL('projects.json', document.baseURI))
-  .then((response) => {
+Promise.all([
+  fetch(new URL('groups.json', document.baseURI)).then((response) => {
+    if (!response.ok) throw new Error('Nu am putut citi groups.json.');
+    return response.json();
+  }),
+  fetch(new URL('projects.json', document.baseURI)).then((response) => {
     if (!response.ok) throw new Error('Selectează projects.json de pe calculator.');
     return response.json();
   })
-  .then(loadData)
+])
+  .then(([groupData, projectData]) => {
+    if (Array.isArray(groupData) && groupData.length) groups = groupData;
+    loadData(projectData);
+  })
   .catch(() => setMessage('Alege fișierul projects.json actual de pe calculator pentru a începe editarea.'));

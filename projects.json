@@ -27,7 +27,8 @@
       "Definirea funcțiilor",
       "Testarea prototipului",
       "Raportarea problemelor"
-    ]
+    ],
+    "group": "eu"
   },
   {
     "title": "MediaSorter",
@@ -56,7 +57,8 @@
       "Definirea regulilor de sortare",
       "Testarea versiunilor",
       "Raportarea problemelor"
-    ]
+    ],
+    "group": "eu"
   },
   {
     "title": "Instrumente AI locale",
@@ -89,7 +91,8 @@
       "Verificarea modelelor",
       "Verificarea răspunsurilor API",
       "Depanarea instalării"
-    ]
+    ],
+    "group": "eu"
   },
   {
     "title": "AI Voice Studio",
@@ -119,7 +122,8 @@
       "Configurarea mediului virtual",
       "Instalarea PyTorch",
       "Depanarea instalării TTS"
-    ]
+    ],
+    "group": "eu"
   },
   {
     "title": "Teren digital în Unreal Engine",
@@ -146,7 +150,8 @@
       "Importul hărții de relief",
       "Analiza înălțimilor",
       "Ajustarea materialului terenului"
-    ]
+    ],
+    "group": "eu"
   },
   {
     "title": "Cerințe pentru aplicații",
@@ -174,7 +179,8 @@
     "activities": [
       "Documentarea cerințelor tehnice",
       "Planificarea funcțiilor"
-    ]
+    ],
+    "group": "eu"
   },
   {
     "title": "AI-Workspace-Android",
@@ -222,6 +228,7 @@
       "Optimizare performanță",
       "Debugging",
       "Testare"
-    ]
+    ],
+    "group": "eu"
   }
 ]

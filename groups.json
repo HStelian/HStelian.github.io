@@ -1,0 +1,16 @@
+[
+  {
+    "id": "eu",
+    "name": "EU",
+    "description": "Proiecte realizate individual.",
+    "logo": "media/logos/eu/logo.png",
+    "mark": "EU"
+  },
+  {
+    "id": "eu-ai",
+    "name": "EU + AI",
+    "description": "Proiecte realizate de mine cu ajutorul inteligenței artificiale.",
+    "logo": "media/logos/eu-ai/logo.png",
+    "mark": "AI"
+  }
+]
