@@ -1,13 +1,21 @@
 const grid = document.querySelector('#project-grid');
 const projectSection = grid?.closest('#proiecte');
 const filters = document.querySelector('#project-filters') || document.createElement('div');
+const groupFilters = document.createElement('div');
+groupFilters.id = 'project-group-filters';
+groupFilters.className = 'project-filters project-group-filters';
+groupFilters.setAttribute('role', 'group');
+groupFilters.setAttribute('aria-label', 'Filtrează proiectele după categorie');
 const count = document.querySelector('#project-count') || document.createElement('p');
 const toolList = document.querySelector('#tool-list');
 const activityList = document.querySelector('#activity-list');
 const tones = new Set(['progress', 'test', 'done', 'wip', 'plan']);
 let projects = [];
 let activeDomain = 'all';
+let activeGroup = 'all';
+let groups = [];
 
+projectSection?.insertBefore(groupFilters, filters);
 if (!document.querySelector('#project-filters')) {
   filters.id = 'project-filters';
   filters.className = 'project-filters';
@@ -172,18 +180,92 @@ function renderSummary(target, values, emptyText, className) {
 }
 
 function renderProjects() {
-  const filtered = activeDomain === 'all'
-    ? projects
-    : projects.filter((project) => (project.domain || 'Altele') === activeDomain);
-  grid.replaceChildren();
-  filtered.forEach((project, index) => grid.append(makeCard(project, index)));
-  if (!filtered.length) {
+  const host = document.createElement('div');
+  host.className = 'project-groups-list';
+  let visibleCount = 0;
+  const configuredGroups = groups.length ? groups : [
+    { id: 'eu', name: 'EU', logo: 'media/logos/eu/logo.png' },
+    { id: 'eu-tu', name: 'EU + TU', logo: 'media/logos/eu-tu/logo.png' }
+  ];
+
+  for (const group of configuredGroups) {
+    if (activeGroup !== 'all' && activeGroup !== group.id) continue;
+    const groupProjects = projects.filter((project) => (project.group || 'eu') === group.id)
+      .filter((project) => activeDomain === 'all' || (project.domain || 'Altele') === activeDomain);
+    const section = document.createElement('section');
+    section.className = 'project-group';
+    section.setAttribute('aria-label', group.name || group.id);
+
+    const heading = document.createElement('div');
+    heading.className = 'project-group-heading';
+    const logoBox = document.createElement('div');
+    logoBox.className = 'project-group-logo';
+    const fallback = document.createElement('span');
+    fallback.className = 'project-group-logo-fallback';
+    fallback.textContent = group.name || group.id;
+    logoBox.append(fallback);
+    const logoUrl = safeUrl(group.logo);
+    if (logoUrl) {
+      const logo = document.createElement('img');
+      logo.src = logoUrl.href;
+      logo.alt = group.name ? `Logo ${group.name}` : 'Logo categorie';
+      logo.loading = 'lazy';
+      logo.addEventListener('load', () => { fallback.hidden = true; });
+      logo.addEventListener('error', () => logo.remove());
+      logoBox.append(logo);
+    }
+    const titleWrap = document.createElement('div');
+    const title = document.createElement('h3');
+    title.textContent = group.name || group.id;
+    titleWrap.append(title);
+    if (group.description) {
+      const note = document.createElement('p');
+      note.textContent = group.description;
+      titleWrap.append(note);
+    }
+    heading.append(logoBox, titleWrap);
+    section.append(heading);
+
+    const groupGrid = document.createElement('div');
+    groupGrid.className = 'project-grid';
+    groupProjects.forEach((project, index) => groupGrid.append(makeCard(project, index)));
+    if (!groupProjects.length) {
+      const empty = document.createElement('p');
+      empty.className = 'loading-note';
+      empty.textContent = 'Nu există proiecte în această categorie pentru filtrul selectat.';
+      groupGrid.append(empty);
+    } else {
+      visibleCount += groupProjects.length;
+    }
+    section.append(groupGrid);
+    host.append(section);
+  }
+  grid.replaceChildren(host);
+  if (!host.childElementCount) {
     const empty = document.createElement('p');
     empty.className = 'loading-note';
-    empty.textContent = 'Nu există proiecte în acest domeniu încă.';
-    grid.append(empty);
+    empty.textContent = 'Nu există categorii configurate. Verifică fișierul groups.json.';
+    grid.replaceChildren(empty);
   }
-  count.textContent = `${filtered.length} ${filtered.length === 1 ? 'proiect' : 'proiecte'} afișate`;
+  count.textContent = `${visibleCount} ${visibleCount === 1 ? 'proiect' : 'proiecte'} afișate`;
+}
+
+function renderGroupFilters() {
+  groupFilters.replaceChildren();
+  const choices = [['all', 'Toate categoriile'], ...groups.map((group) => [group.id, group.name || group.id])];
+  for (const [value, label] of choices) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'filter-button';
+    button.textContent = label;
+    button.setAttribute('aria-pressed', String(activeGroup === value));
+    button.addEventListener('click', () => {
+      activeGroup = value;
+      groupFilters.querySelectorAll('button').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      renderProjects();
+    });
+    groupFilters.append(button);
+  }
 }
 
 function renderDomains() {
@@ -225,15 +307,23 @@ function renderFilters() {
   }
 }
 
-fetch(new URL('projects.json', document.baseURI))
-  .then((response) => {
+Promise.all([
+  fetch(new URL('projects.json', document.baseURI)).then((response) => {
     if (!response.ok) throw new Error(`projects.json nu a putut fi încărcat (HTTP ${response.status}).`);
     return response.json();
+  }),
+  fetch(new URL('groups.json', document.baseURI)).then((response) => {
+    if (!response.ok) throw new Error(`groups.json nu a putut fi încărcat (HTTP ${response.status}).`);
+    return response.json();
   })
-  .then((data) => {
-    if (!Array.isArray(data)) throw new Error('projects.json trebuie să conțină o listă de proiecte.');
-    projects = data;
+])
+  .then(([projectData, groupData]) => {
+    if (!Array.isArray(projectData)) throw new Error('projects.json trebuie să conțină o listă de proiecte.');
+    if (!Array.isArray(groupData)) throw new Error('groups.json trebuie să conțină o listă de categorii.');
+    projects = projectData;
+    groups = groupData.filter((group) => group && group.id && group.name);
     renderDomains();
+    renderGroupFilters();
     renderFilters();
     renderProjects();
     renderSummary(toolList, uniqueValues('tools'), 'Nu sunt instrumente listate încă.', 'tool-chip');
@@ -245,6 +335,7 @@ fetch(new URL('projects.json', document.baseURI))
     message.textContent = `Lista de proiecte nu s-a încărcat. ${error.message}`;
     grid.replaceChildren(message);
     filters.replaceChildren();
+    groupFilters.replaceChildren();
     count.textContent = '';
     renderSummary(toolList, [], 'Lista de proiecte nu s-a încărcat.', 'tool-chip');
     renderSummary(activityList, [], 'Lista de proiecte nu s-a încărcat.', '');
