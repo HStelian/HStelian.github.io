@@ -122,7 +122,7 @@ function render() {
     card.append(makeField('Domeniu', project.domain, (value) => {
       project.domain = value.trim() || 'Altele';
       folderHint.textContent = `Folder pentru fișierele acestui proiect: ${assetFolder(project)}`;
-    }, 'input', 'Scrie orice domeniu dorești. Site-ul îl adaugă automat ca filtru.'));
+    }, 'input', 'Scrie orice domeniu dorești. Va apărea automat în filtre și în lista domeniilor.'));
     card.append(folderHint);
     card.append(makeField('Stadiu', project.status, (value) => { project.status = value; }));
     card.append(makeField('Culoarea etichetei', project.tone || 'plan', (value) => { project.tone = value; }, 'select'));

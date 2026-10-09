@@ -186,6 +186,26 @@ function renderProjects() {
   count.textContent = `${filtered.length} ${filtered.length === 1 ? 'proiect' : 'proiecte'} afișate`;
 }
 
+function renderDomains() {
+  const panel = document.querySelector('.hero-card[aria-label="Domenii de interes"]');
+  const list = panel?.querySelector('ul');
+  if (!panel || !list) return;
+
+  const domains = [...new Set(projects.map((project) => String(project.domain || 'Altele').trim()).filter(Boolean))];
+  list.replaceChildren();
+  domains.forEach((domain, index) => {
+    const item = document.createElement('li');
+    const number = document.createElement('span');
+    number.textContent = String(index + 1).padStart(2, '0');
+    item.append(number, document.createTextNode(domain));
+    list.append(item);
+  });
+
+  const badge = panel.querySelector('.card-orbit span');
+  if (badge) badge.textContent = String(domains.length).padStart(2, '0');
+  panel.setAttribute('aria-label', `${domains.length} domenii de interes`);
+}
+
 function renderFilters() {
   filters.replaceChildren();
   const domains = [...new Set(projects.map((project) => project.domain || 'Altele'))];
@@ -213,6 +233,7 @@ fetch(new URL('projects.json', document.baseURI))
   .then((data) => {
     if (!Array.isArray(data)) throw new Error('projects.json trebuie să conțină o listă de proiecte.');
     projects = data;
+    renderDomains();
     renderFilters();
     renderProjects();
     renderSummary(toolList, uniqueValues('tools'), 'Nu sunt instrumente listate încă.', 'tool-chip');
