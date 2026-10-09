@@ -14,7 +14,7 @@ let projects = [];
 let loaded = false;
 let groups = [
   { id: 'eu', name: 'EU' },
-  { id: 'eu-tu', name: 'EU + TU' }
+  { id: 'eu-ai', name: 'EU + AI' }
 ];
 
 function setMessage(text, kind = '') {
@@ -153,7 +153,7 @@ function render() {
     card.append(folderHint);
     card.append(makeChoiceField('Categorie', project.group || 'eu', groups.map((group) => [group.id, group.name || group.id]), (value) => {
       project.group = value;
-    }, 'Alege „EU” pentru proiecte individuale sau „EU + TU” pentru proiecte realizate împreună.'));
+    }, 'Alege „EU” pentru proiecte realizate fără AI sau „EU + AI” pentru proiecte dezvoltate cu ajutorul inteligenței artificiale.'));
     card.append(makeField('Stadiu', project.status, (value) => { project.status = value; }));
     card.append(makeField('Culoarea etichetei', project.tone || 'plan', (value) => { project.tone = value; }, 'select'));
     card.append(makeField('Descriere', project.description, (value) => { project.description = value; }, 'textarea'));
