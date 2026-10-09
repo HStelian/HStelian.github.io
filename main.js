@@ -15,7 +15,6 @@ let activeDomain = 'all';
 let activeGroup = 'all';
 let groups = [];
 
-projectSection?.insertBefore(groupFilters, filters);
 if (!document.querySelector('#project-filters')) {
   filters.id = 'project-filters';
   filters.className = 'project-filters';
@@ -23,6 +22,7 @@ if (!document.querySelector('#project-filters')) {
   filters.setAttribute('aria-label', 'Filtrează proiectele după domeniu');
   projectSection?.insertBefore(filters, grid);
 }
+projectSection?.insertBefore(groupFilters, filters);
 if (!document.querySelector('#project-count')) {
   count.id = 'project-count';
   count.className = 'project-count';
