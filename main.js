@@ -252,15 +252,47 @@ function renderProjects() {
 
 function renderGroupFilters() {
   groupFilters.replaceChildren();
-  const choices = [['all', 'Toate categoriile'], ...groups.map((group) => [group.id, group.name || group.id])];
-  for (const [value, label] of choices) {
+  const choices = [
+    { id: 'all', name: 'Toate categoriile', description: 'Vezi toate proiectele', mark: '✦' },
+    ...groups
+  ];
+
+  for (const group of choices) {
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'filter-button';
-    button.textContent = label;
-    button.setAttribute('aria-pressed', String(activeGroup === value));
+    button.className = 'category-filter-button';
+    button.setAttribute('aria-pressed', String(activeGroup === group.id));
+
+    const emblem = document.createElement('span');
+    emblem.className = 'category-filter-logo';
+    const fallback = document.createElement('span');
+    fallback.className = 'category-filter-fallback';
+    fallback.textContent = group.mark || group.name || group.id;
+    emblem.append(fallback);
+    if (group.logo && group.id !== 'all') {
+      const logoUrl = safeUrl(group.logo);
+      if (logoUrl) {
+        const logo = document.createElement('img');
+        logo.src = logoUrl.href;
+        logo.alt = '';
+        logo.setAttribute('aria-hidden', 'true');
+        logo.loading = 'lazy';
+        logo.addEventListener('load', () => { fallback.hidden = true; });
+        logo.addEventListener('error', () => logo.remove());
+        emblem.append(logo);
+      }
+    }
+
+    const copy = document.createElement('span');
+    copy.className = 'category-filter-copy';
+    const title = document.createElement('strong');
+    title.textContent = group.name || group.id;
+    const note = document.createElement('small');
+    note.textContent = group.description || '';
+    copy.append(title, note);
+    button.append(emblem, copy);
     button.addEventListener('click', () => {
-      activeGroup = value;
+      activeGroup = group.id;
       groupFilters.querySelectorAll('button').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
       renderProjects();
     });
