@@ -1,0 +1,14 @@
+[
+  {
+    "id": "eu",
+    "name": "EU",
+    "description": "Proiecte realizate individual.",
+    "logo": "media/logos/eu/logo.png"
+  },
+  {
+    "id": "eu-tu",
+    "name": "EU + TU",
+    "description": "Proiecte realizate împreună.",
+    "logo": "media/logos/eu-tu/logo.png"
+  }
+]
