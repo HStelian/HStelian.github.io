@@ -180,13 +180,13 @@ function renderSummary(target, values, emptyText, className) {
 }
 
 function renderProjects() {
-  const host = document.createElement('div');
-  host.className = 'project-groups-list';
   let visibleCount = 0;
   const configuredGroups = groups.length ? groups : [
     { id: 'eu', name: 'EU', logo: 'media/logos/eu/logo.png' },
     { id: 'eu-ai', name: 'EU + AI', logo: 'media/logos/eu-ai/logo.png', mark: 'AI' }
   ];
+  const host = document.createElement('div');
+  host.className = `project-groups-list${activeGroup === 'all' && configuredGroups.length > 1 ? ' is-all-groups' : ' is-single-group'}`;
 
   for (const group of configuredGroups) {
     if (activeGroup !== 'all' && activeGroup !== group.id) continue;
