@@ -185,7 +185,7 @@ function renderProjects() {
   let visibleCount = 0;
   const configuredGroups = groups.length ? groups : [
     { id: 'eu', name: 'EU', logo: 'media/logos/eu/logo.png' },
-    { id: 'eu-tu', name: 'EU + TU', logo: 'media/logos/eu-tu/logo.png' }
+    { id: 'eu-ai', name: 'EU + AI', logo: 'media/logos/eu-ai/logo.png', mark: 'AI' }
   ];
 
   for (const group of configuredGroups) {
