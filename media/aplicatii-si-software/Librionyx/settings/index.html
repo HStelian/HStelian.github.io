@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <title>Librionyx — Demo interactiv Setări</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <div class="brand">
+      <img id="brand-logo" src="assets/Librionyx-Dark.png" alt="Librionyx">
+      <span class="brand-divider" aria-hidden="true"></span>
+      <span class="brand-caption">SETĂRI <span class="caption-muted">/ DEMO</span></span>
+    </div>
+    <div class="top-actions">
+      <span class="preview-pill"><span class="pulse-dot"></span> Prototip HTML</span>
+      <button type="button" id="quick-theme" class="icon-button" aria-label="Schimbă modul de culoare" title="Comută Dark / Light">◐</button>
+      <span class="version-pill">v0.3.9 · propunere</span>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <aside class="sidebar" aria-label="Navigare setări">
+      <div class="side-heading">CENTRU DE CONTROL</div>
+      <h2>Setări</h2>
+      <p>Personalizează Librionyx după modul tău de lucru.</p>
+      <span class="side-label">PREFERINȚE</span>
+      <nav id="navigation" class="navigation">
+        <button class="nav-item active" data-view="general"><span class="nav-number">01</span>General<span class="nav-arrow">›</span></button>
+        <button class="nav-item" data-view="appearance"><span class="nav-number">02</span>Aspect și interfață<span class="nav-arrow">›</span></button>
+        <button class="nav-item" data-view="models"><span class="nav-number">03</span>Modele AI<span class="nav-arrow">›</span></button>
+        <button class="nav-item" data-view="multi"><span class="nav-number">04</span>Multi-AI și hardware<span class="nav-arrow">›</span></button>
+        <button class="nav-item" data-view="documents"><span class="nav-number">05</span>Documente și OCR<span class="nav-arrow">›</span></button>
+        <button class="nav-item" data-view="plugins"><span class="nav-number">06</span>Pluginuri<span class="nav-arrow">›</span></button>
+        <button class="nav-item" data-view="about"><span class="nav-number">07</span>Despre<span class="nav-arrow">›</span></button>
+      </nav>
+      <div class="side-foot">
+        <div class="side-foot-icon">◇</div>
+        <div><strong>Design flexibil</strong><small>Toate opțiunile într-un singur loc.</small></div>
+      </div>
+    </aside>
+
+    <main id="main-content" class="main" tabindex="-1">
+      <section class="view active" id="page-general" aria-labelledby="general-title">
+        <div class="page-head"><span class="eyebrow">PREFERINȚE / 01</span><h1 id="general-title">General</h1><p>Setările esențiale pentru modul în care Librionyx comunică și analizează documentele.</p></div>
+        <article class="settings-card">
+          <div class="card-heading"><div><h3>Limba și analiza</h3><p>Personalizarea rezultatelor și a răspunsurilor AI.</p></div><span class="mini-icon">文</span></div>
+          <div class="field-grid two">
+            <label class="field"><span>Limba răspunsurilor</span><input data-setting="language" type="text" value="Română" autocomplete="off"><small>Poți introduce orice limbă acceptată de model.</small></label>
+            <label class="field"><span>Detalierea implicită</span><select data-setting="detail"><option>Simplu</option><option selected>Normal</option><option>Complex</option><option>Personalizat</option></select><small>Poate fi schimbată pentru fiecare analiză.</small></label>
+          </div>
+          <div class="line-divider"></div>
+          <div class="setting-line"><div><strong>Arată referințele la pagini</strong><p>Include sursa și pagina în răspunsurile verificate.</p></div><label class="switch"><input data-setting="citations" type="checkbox" checked><span></span></label></div>
+          <div class="setting-line"><div><strong>Corectează citările o singură dată</strong><p>Solicită reformulare dacă referințele lipsesc sau sunt invalide.</p></div><label class="switch"><input data-setting="retry" type="checkbox" checked><span></span></label></div>
+        </article>
+        <article class="info-band"><span class="info-icon">i</span><p>Acest demo arată și salvează preferințele în browser. Nu rulează modele AI și nu modifică aplicația Windows instalată.</p></article>
+      </section>
+
+      <section class="view" id="page-appearance" aria-labelledby="appearance-title">
+        <div class="page-head"><span class="eyebrow">PERSONALIZARE / 02</span><h1 id="appearance-title">Aspect și interfață</h1><p>Alege stilul, modul de afișare și culorile. Schimbările se văd imediat în întreaga interfață.</p></div>
+        <article class="settings-card">
+          <div class="card-heading"><div><h3>Stil vizual</h3><p>Trei direcții bazate pe aceeași identitate Librionyx.</p></div></div>
+          <div class="preset-grid" id="preset-grid">
+            <button type="button" data-preset="minimalist" class="preset-option"><span class="preset-example mini-minimal"><i></i><i></i><i></i></span><strong>Minimalist</strong><small>Linii curate, spațiere generoasă</small></button>
+            <button type="button" data-preset="modern" class="preset-option selected"><span class="preset-example mini-modern"><i></i><i></i><i></i></span><strong>Modern</strong><small>Accente precise, contraste echilibrate</small></button>
+            <button type="button" data-preset="classic" class="preset-option"><span class="preset-example mini-classic"><i></i><i></i><i></i></span><strong>Clasic</strong><small>Colțuri discrete, elemente elegante</small></button>
+          </div>
+          <div class="line-divider"></div>
+          <div class="compact-row"><div><strong>Mod de afișare</strong><small>Dark și Light folosesc logo-urile oficiale.</small></div><div class="segmented" role="group" aria-label="Mod de afișare"><button type="button" data-scheme="dark" class="active">◐ Întunecat</button><button type="button" data-scheme="light">☼ Luminos</button></div></div>
+          <div class="compact-row"><div><strong>Complexitatea interfeței</strong><small>Previzualizează organizarea disponibilă.</small></div><select class="compact-select" data-setting="complexity"><option>Începător</option><option>Avansat</option><option>God</option></select></div>
+        </article>
+        <article class="settings-card">
+          <div class="card-heading"><div><h3>Culori personalizate</h3><p>Poți modifica fiecare culoare. Valorile HEX se aplică live.</p></div><button type="button" id="reset-palette" class="btn btn-quiet btn-small">↺ Resetează culorile</button></div>
+          <div class="color-grid" id="color-grid">
+            <div class="color-field" data-color-key="accent"><div><strong>Accent principal</strong><small>Butoane și selecții</small></div><div class="color-controls"><input type="color" aria-label="Selectează accentul principal"><input class="hex-input" type="text" spellcheck="false" aria-label="Valoare HEX accent principal" maxlength="7"></div></div>
+            <div class="color-field" data-color-key="accent2"><div><strong>Accent secundar</strong><small>Detalii și marcaje</small></div><div class="color-controls"><input type="color" aria-label="Selectează accentul secundar"><input class="hex-input" type="text" spellcheck="false" aria-label="Valoare HEX accent secundar" maxlength="7"></div></div>
+            <div class="color-field" data-color-key="bg"><div><strong>Fundal</strong><small>Spațiul principal</small></div><div class="color-controls"><input type="color" aria-label="Selectează fundalul"><input class="hex-input" type="text" spellcheck="false" aria-label="Valoare HEX fundal" maxlength="7"></div></div>
+            <div class="color-field" data-color-key="panel"><div><strong>Panouri</strong><small>Carduri și liste</small></div><div class="color-controls"><input type="color" aria-label="Selectează panourile"><input class="hex-input" type="text" spellcheck="false" aria-label="Valoare HEX panouri" maxlength="7"></div></div>
+            <div class="color-field" data-color-key="text"><div><strong>Text</strong><small>Titluri și informații</small></div><div class="color-controls"><input type="color" aria-label="Selectează textul"><input class="hex-input" type="text" spellcheck="false" aria-label="Valoare HEX text" maxlength="7"></div></div>
+            <div class="color-field" data-color-key="button"><div><strong>Butoane</strong><small>Fundal acțiuni primare</small></div><div class="color-controls"><input type="color" aria-label="Selectează culoarea butoanelor"><input class="hex-input" type="text" spellcheck="false" aria-label="Valoare HEX butoane" maxlength="7"></div></div>
+          </div>
+          <div class="action-row"><button type="button" id="export-theme" class="btn btn-secondary">Exportă tema JSON ↗</button><button type="button" id="import-theme" class="btn btn-quiet">Importă temă JSON</button><input type="file" id="theme-file" accept="application/json,.json" hidden></div>
+        </article>
+        <article class="settings-card preview-card">
+          <div class="card-heading"><div><h3>Previzualizare live</h3><p>Componentele urmează culorile și stilul ales.</p></div><span class="preview-label">DEMO</span></div>
+          <div class="mini-application"><div class="mini-top"><strong>Biblioteca mea</strong><span>2 documente · AI local</span></div><div class="mini-columns"><div class="mini-list"><div class="mini-book selected-book"><span class="book-symbol">▤</span><div><b>Noțiuni teoretice</b><small>PDF · 12 pagini</small></div></div><div class="mini-book"><span class="book-symbol">▤</span><div><b>Aspecte generale</b><small>PDF · 7 pagini</small></div></div></div><div class="mini-answer"><small>CHAT / CONTEXT</small><p>Analizez documentele selectate folosind sursele disponibile.</p><div class="chip-row"><span class="chip">[S1_1]</span><span class="chip">Română</span></div><div class="mini-button-row"><button class="btn btn-primary" type="button" id="preview-primary">Analizează</button><button class="btn btn-secondary" type="button" id="preview-secondary">Exportă</button></div></div></div></div>
+        </article>
+      </section>
+
+      <section class="view" id="page-models" aria-labelledby="models-title">
+        <div class="page-head"><span class="eyebrow">INTELIGENȚĂ ARTIFICIALĂ / 03</span><h1 id="models-title">Modele AI</h1><p>Alege motorul și modelele active. Lista de mai jos este o demonstrație a interfeței.</p></div>
+        <article class="settings-card"><div class="card-heading"><div><h3>Motor implicit</h3><p>Configurare fără aplicații externe obligatorii.</p></div><span class="flag">MODEL DEMO</span></div>
+          <div class="field-grid two"><label class="field"><span>Furnizor</span><select data-setting="provider"><option selected>GGUF local</option><option>API</option><option>Multi-AI local</option></select></label><label class="field"><span>Model activ</span><select id="active-model-select"></select></label></div>
+        </article>
+        <article class="settings-card"><div class="card-heading"><div><h3>Biblioteca GGUF</h3><p>În demo poți adăuga numele unui fișier; motorul real nu pornește.</p></div><span class="count-label" id="model-count">0 modele</span></div><div id="model-list" class="model-list"></div><div class="action-row"><label class="btn btn-secondary file-label">+ Selectează fișiere GGUF<input id="models-upload" type="file" accept=".gguf" multiple hidden></label><button class="btn btn-quiet" type="button" id="remove-model">Elimină din demo</button></div></article>
+      </section>
+
+      <section class="view" id="page-multi" aria-labelledby="multi-title">
+        <div class="page-head"><span class="eyebrow">ORCHESTRARE / 04</span><h1 id="multi-title">Multi-AI și hardware</h1><p>Configurează modelele și resursele direct aici. <strong>Nu se deschide altă fereastră.</strong></p></div>
+        <article class="settings-card"><div class="card-heading"><div><h3>Strategie de execuție</h3><p>Alege colaborarea dintre modele și nivelul de automatizare.</p></div><span class="flag">CONFIGURARE INTEGRATĂ</span></div><span class="control-label">Strategie</span><div class="option-grid triple" id="strategy-options"><button type="button" data-strategy="Serial" class="choice-card selected"><strong>Serial</strong><small>Unul după altul</small></button><button type="button" data-strategy="Paralel" class="choice-card"><strong>Paralel</strong><small>Simultan, dacă există resurse</small></button><button type="button" data-strategy="Hibrid" class="choice-card"><strong>Hibrid</strong><small>Combină cele două metode</small></button></div>
+          <div class="line-divider"></div><div class="compact-row"><div><strong>Mod de control</strong><small>Auto propune configurarea; Manual expune toate opțiunile.</small></div><div class="segmented" id="multi-controls"><button type="button" data-control="Auto" class="active">Auto</button><button type="button" data-control="Manual">Manual</button></div></div>
+          <div class="field-grid two" id="multi-manual-fields"><label class="field"><span>Limită execuții paralele</span><input id="parallel-limit" type="number" min="1" max="16" value="1"></label><label class="field"><span>Politică resurse</span><select id="resource-policy"><option value="safe">Conservator</option><option value="balanced">Echilibrat</option><option value="performance">Performanță</option></select></label></div>
+        </article>
+        <article class="settings-card"><div class="card-heading"><div><h3>Modele participante</h3><p>Poți selecta mai multe modele GGUF pentru orchestrare.</p></div><span class="count-label" id="selected-models-count">0 selectate</span></div><div id="multi-models-list" class="model-list compact-models"></div><p class="inline-notice" id="multi-summary"></p></article>
+        <article class="settings-card"><div class="card-heading"><div><h3>Resurse hardware</h3><p>Date demonstrative, nu o detectare a calculatorului în browser.</p></div><span class="flag">EXEMPLU</span></div><div class="hardware-grid"><div class="hardware-item"><small>CPU</small><strong>Intel Core i9-10900K</strong><span>20 fire logice</span></div><div class="hardware-item"><small>RAM</small><strong>32 GB</strong><span>Memorie sistem</span></div><div class="hardware-item"><small>GPU</small><strong>GTX 1060</strong><span>6 GB VRAM</span></div></div></article>
+      </section>
+
+      <section class="view" id="page-documents" aria-labelledby="documents-title">
+        <div class="page-head"><span class="eyebrow">DOCUMENTE / 05</span><h1 id="documents-title">Documente și OCR</h1><p>Citire PDF, recunoaștere text și verificarea componentelor — fără butoane ascunse sau ferestre inutile.</p></div>
+        <article class="settings-card"><div class="card-heading"><div><h3>Extragere text și OCR</h3><p>Aceste controale sunt integrate direct în pagina de setări.</p></div></div><div class="field-grid two"><label class="field"><span>Mod extragere</span><select data-setting="ocrMode"><option>Auto</option><option>Forțează OCR</option><option>Doar text PDF</option></select></label><label class="field"><span>Limbi OCR</span><input data-setting="ocrLang" type="text" value="ron+eng"></label></div><div class="field-grid two"><label class="field"><span>Prag minim pagini lizibile (%)</span><input data-setting="ocrThreshold" type="number" min="1" max="100" value="80"></label><label class="field"><span>Politica paginilor problematice</span><select data-setting="ocrPolicy"><option>Parțial</option><option>Strict</option></select></label></div>
+          <div class="action-row two-actions"><button class="btn btn-primary" type="button" id="ocr-check">Verifică textul PDF / OCR</button><button class="btn btn-secondary" type="button" id="dependencies-check">Instalează / verifică PDF, OCR și GGUF</button></div><div class="inline-notice" id="ocr-note">Ambele acțiuni au același stil vizual; verificarea efectivă este disponibilă numai în aplicația Windows.</div>
+        </article>
+        <article class="info-band"><span class="info-icon">i</span><p>Acesta este doar prototipul interfeței. Nu procesează PDF-uri și nu instalează dependențe pe calculator.</p></article>
+      </section>
+
+      <section class="view" id="page-plugins" aria-labelledby="plugins-title">
+        <div class="page-head"><span class="eyebrow">EXTENSII / 06</span><h1 id="plugins-title">Pluginuri și interfețe</h1><p>Administrarea extensiilor într-un singur loc, cu activare și instalare controlată.</p></div>
+        <article class="settings-card"><div class="card-heading"><div><h3>Interfețe instalate</h3><p>Exemple de teme. Selecția efectivă este făcută în „Aspect și interfață”.</p></div></div><div class="plugin-row"><div><strong>Obsidian</strong><small>Temă închisă inclusă</small></div><span class="flag">INCLUSĂ</span></div><div class="plugin-row"><div><strong>Arctic</strong><small>Temă deschisă inclusă</small></div><span class="flag">INCLUSĂ</span></div></article>
+        <article class="settings-card"><div class="card-heading"><div><h3>Pluginuri</h3><p>Exemplu de listă pentru funcțiile viitoare.</p></div><span class="flag">DEMO</span></div><div class="plugin-row"><div><strong>Extensie exemplu — export</strong><small>Simulare; fără execuție de cod</small></div><label class="switch"><input type="checkbox" id="demo-plugin"><span></span></label></div><div class="action-row"><button type="button" id="plugin-info" class="btn btn-secondary">+ Adaugă plugin / interfață</button></div></article>
+      </section>
+
+      <section class="view" id="page-about" aria-labelledby="about-title">
+        <div class="page-head"><span class="eyebrow">INFORMAȚII / 07</span><h1 id="about-title">Despre Librionyx</h1><p>Aplicație Windows pentru organizarea și analiza cărților cu modele AI locale și API-uri opționale.</p></div>
+        <article class="settings-card"><div class="card-heading"><div><h3>Demo interactiv de interfață</h3><p>Propunere vizuală pentru următoarea versiune, bazată pe designul v0.3.8.</p></div><span class="flag">ÎN AȘTEPTAREA APROBĂRII</span></div><div class="about-grid"><div><small>Versiune prototip</small><strong>v0.3.9 · HTML</strong></div><div><small>Aplicație existentă</small><strong>v0.3.8 · Windows</strong></div><div><small>Implementare demo</small><strong>HTML / CSS / JS</strong></div><div><small>Necesită internet</small><strong>Nu</strong></div></div></article>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footerbar"><div><span class="status-dot"></span><span id="status-text">Mod demo · modificările nu afectează aplicația Windows</span></div><div class="footer-actions"><button type="button" class="btn btn-quiet" id="discard-changes">Revino la ultima salvare</button><button type="button" class="btn btn-primary" id="save-settings">Salvează preferințele</button></div></footer>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
