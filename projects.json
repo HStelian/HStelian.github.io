@@ -1,5 +1,47 @@
 [
   {
+    "title": "Librionyx",
+    "id": "librionyx",
+    "domain": "AI și modele locale",
+    "group": "eu-ai",
+    "status": "Prototip funcțional în testare",
+    "tone": "progress",
+    "description": "Aplicație Windows pentru organizarea și analiza cărților cu AI local GGUF sau API opțional. Include bibliotecă pe categorii, extragere PDF/OCR, chat cu citări, orchestrare Multi-AI și pluginuri. Interfața modernă este în migrare; demo-ul HTML este interactiv, cu funcții simulate.",
+    "detailsPage": true,
+    "demo": "demos/librionyx/index.html",
+    "link": "https://github.com/HStelian/Librionyx",
+    "downloads": [],
+    "images": [],
+    "tags": [
+      "Windows",
+      "Python",
+      "GGUF",
+      "AI local",
+      "OCR",
+      "Multi-AI",
+      "Pluginuri",
+      "Demo HTML"
+    ],
+    "tools": [
+      "Python",
+      "PySide6",
+      "Qt WebEngine",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "GGUF",
+      "OCR"
+    ],
+    "activities": [
+      "Analiză și definire cerințe",
+      "Branding și design UI/UX",
+      "Prototip HTML interactiv",
+      "Implementare motor de analiză",
+      "Integrare PDF/OCR și citări",
+      "Testare și migrare interfață Qt"
+    ]
+  },
+  {
     "title": "Aplicația Android Puls",
     "id": "puls-android",
     "domain": "Aplicații și software",
