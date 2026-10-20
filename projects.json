@@ -300,9 +300,9 @@
     "id": "diagnosticare-robot-bucatarie",
     "domain": "Diagnosticare și mentenanță",
     "group": "eu",
-    "status": "Defecțiune identificată",
-    "tone": "test",
-    "description": "Am investigat un robot de bucătărie care nu mai toca, deși motorul funcționa. Am demontat aparatul și am identificat o roată dințată ruptă în mecanismul de transmisie.",
+    "status": "Reparat",
+    "tone": "done",
+    "description": "Am investigat un robot de bucătărie care nu mai toca, deși motorul funcționa. Am demontat aparatul, am identificat o roată dințată ruptă în mecanismul de transmisie și am reparat robotul de bucătărie.",
     "detailsPage": false,
     "demo": "",
     "link": "",
@@ -319,7 +319,8 @@
       "Analiza simptomelor de funcționare",
       "Demontarea aparatului",
       "Inspecția mecanismului de transmisie",
-      "Identificarea unei roți dințate rupte"
+      "Identificarea unei roți dințate rupte",
+      "Repararea aparatului"
     ]
   }
 ]
