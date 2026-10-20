@@ -294,5 +294,32 @@
       "alegerea culorilor și fonturilor",
       "pregătirea machetei finale"
     ]
+  },
+  {
+    "title": "Diagnosticarea unui robot de bucătărie",
+    "id": "diagnosticare-robot-bucatarie",
+    "domain": "Diagnosticare și mentenanță",
+    "group": "eu",
+    "status": "Defecțiune identificată",
+    "tone": "test",
+    "description": "Am investigat un robot de bucătărie care nu mai toca, deși motorul funcționa. Am demontat aparatul și am identificat o roată dințată ruptă în mecanismul de transmisie.",
+    "detailsPage": false,
+    "demo": "",
+    "link": "",
+    "downloads": [],
+    "images": [],
+    "tags": [
+      "Electrocasnice",
+      "Diagnosticare mecanică",
+      "Mecanism de transmisie",
+      "Roată dințată"
+    ],
+    "tools": [],
+    "activities": [
+      "Analiza simptomelor de funcționare",
+      "Demontarea aparatului",
+      "Inspecția mecanismului de transmisie",
+      "Identificarea unei roți dințate rupte"
+    ]
   }
 ]
