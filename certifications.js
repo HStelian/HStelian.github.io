@@ -26,7 +26,7 @@ function renderCertificates(certificates) {
     const empty = document.createElement('section');
     empty.className = 'loading-note';
     const title = document.createElement('h2');
-    title.textContent = 'Nu am încă certificări';
+    title.textContent = 'Nu sunt adăugate încă certificări';
     const text = document.createElement('p');
     text.textContent = 'Voi adăuga aici certificările obținute, împreună cu detaliile și documentele de verificare disponibile.';
     text.style.margin = '14px 0 0';
