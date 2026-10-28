@@ -161,3 +161,6 @@ fetch(new URL('projects.json', document.baseURI))
     message.textContent = error.message;
     page.replaceChildren(message);
   });
+
+// Load the shared language selector for the public portfolio.
+import('./i18n.js').catch((error) => console.warn('Language selector unavailable:', error));
