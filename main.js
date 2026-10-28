@@ -301,7 +301,7 @@ function renderGroupFilters() {
 }
 
 function renderDomains() {
-  const panel = document.querySelector('.hero-card[aria-label="Domenii de interes"]');
+  const panel = document.querySelector('.hero-card');
   const list = panel?.querySelector('ul');
   if (!panel || !list) return;
 
@@ -372,3 +372,6 @@ Promise.all([
     renderSummary(toolList, [], 'Lista de proiecte nu s-a încărcat.', 'tool-chip');
     renderSummary(activityList, [], 'Lista de proiecte nu s-a încărcat.', '');
   });
+
+// Load the shared language selector for the public portfolio.
+import('./i18n.js').catch((error) => console.warn('Language selector unavailable:', error));
