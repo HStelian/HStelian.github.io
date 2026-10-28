@@ -382,5 +382,35 @@ if (portfolioNav && !portfolioNav.querySelector('a[href*="certifications.html"]'
   portfolioNav.insertBefore(certificatesLink, portfolioNav.querySelector('.nav-contact'));
 }
 
+// Professional profile section.
+if (!document.querySelector('#linkedin')) {
+  const section = document.createElement('section');
+  section.id = 'linkedin';
+  section.className = 'section container';
+  section.setAttribute('aria-labelledby', 'linkedin-heading');
+  const panel = document.createElement('div');
+  panel.className = 'tool-panel';
+  const eyebrow = document.createElement('p');
+  eyebrow.className = 'eyebrow';
+  eyebrow.textContent = 'Profil profesional';
+  const title = document.createElement('h2');
+  title.id = 'linkedin-heading';
+  title.textContent = 'LinkedIn';
+  const description = document.createElement('p');
+  description.textContent = 'Vezi profilul meu profesional pe LinkedIn.';
+  description.style.marginTop = '16px';
+  const link = document.createElement('a');
+  link.className = 'button button-primary';
+  link.href = 'https://www.linkedin.com/in/hudea-stelian/?locale=ro-RO';
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.textContent = 'Vezi profilul LinkedIn';
+  panel.append(eyebrow, title, description, link);
+  section.append(panel);
+  const contactSection = document.querySelector('.bottom-grid');
+  if (contactSection) contactSection.before(section);
+  else document.querySelector('main')?.append(section);
+}
+
 // Load the shared language selector for the public portfolio.
 import('./i18n.js').catch((error) => console.warn('Language selector unavailable:', error));
