@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CV disponibil în română și engleză, în format Word.">
+  <title>CV | Portofoliu personal</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cv.css">
+  <script src="cv.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#cv">Sari la CV-uri</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">←</span><span class="brand-text">Portofoliu personal</span></a>
+      <nav aria-label="Navigare principală">
+        <a href="index.html#proiecte">Proiecte</a>
+        <a href="cv.html" aria-current="page">CV</a>
+        <a href="certifications.html">Certificări</a>
+        <a class="nav-contact" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="cv" class="container project-detail-page">
+    <a class="detail-back" href="index.html">Înapoi la portofoliu</a>
+    <div class="section-heading">
+      <div><p class="eyebrow">Profil profesional</p><h1>Curriculum vitae</h1></div>
+    </div>
+    <p class="cv-intro">Alege versiunea în română sau în engleză. Documentele sunt disponibile în format Word.</p>
+    <div class="project-grid cv-grid">
+      <article class="project-card cv-card" data-cv="media/cv/CV_Hudea_Stelian_RO.docx">
+        <span class="tag tag-test" lang="ro">RO</span>
+        <h2>CV în română</h2>
+        <p>Studii, competențe tehnice și proiecte personale.</p>
+        <div class="cv-actions" aria-live="polite" aria-busy="true"><p>Se verifică disponibilitatea…</p></div>
+      </article>
+      <article class="project-card cv-card" data-cv="media/cv/CV_Hudea_Stelian_EN.docx">
+        <span class="tag tag-test" lang="en">EN</span>
+        <h2>CV în engleză</h2>
+        <p>Studii, competențe tehnice și proiecte personale.</p>
+        <div class="cv-actions" aria-live="polite" aria-busy="true"><p>Se verifică disponibilitatea…</p></div>
+      </article>
+    </div>
+    <noscript>Pentru a vedea documentele disponibile, activează JavaScript.</noscript>
+  </main>
+</body>
+</html>
