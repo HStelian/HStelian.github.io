@@ -1,0 +1,9 @@
+.cv-intro { max-width:660px; margin:0 0 28px; color:var(--muted); }
+.cv-card { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+.cv-card h2 { font-size:26px; }
+.cv-card p { margin:0; }
+.cv-actions { margin-top:auto; padding-top:8px; }
+.cv-actions p { color:var(--muted); }
+.cv-actions a { overflow-wrap:anywhere; }
+.site-header nav { flex-wrap:wrap; }
+@media(max-width:640px) { .cv-grid { grid-template-columns:minmax(0,1fr); } }
