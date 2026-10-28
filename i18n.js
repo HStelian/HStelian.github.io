@@ -99,7 +99,7 @@
     });
     document.querySelectorAll('a[href]').forEach((anchor) => {
       const url = new URL(anchor.getAttribute('href'), document.baseURI);
-      if (url.origin === location.origin && /\/(index|project)\.html$/.test(url.pathname)) {
+      if (url.origin === location.origin && /\/(index|project|certifications)\.html$/.test(url.pathname)) {
         url.searchParams.set('lang', language);
         anchor.href = url.href;
       }
