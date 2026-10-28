@@ -1,5 +1,13 @@
 // Shared RO/EN localisation. Source content stays in Romanian.
 // English copy is maintained in translations.en.json.
+// Keep the CV page accessible from all public navigation menus.
+const cvNav = document.querySelector('.site-header nav');
+if (cvNav && !cvNav.querySelector('a[href*="cv.html"]')) {
+  const link = document.createElement('a');
+  link.href = 'cv.html';
+  link.textContent = 'CV';
+  cvNav.insertBefore(link, cvNav.querySelector('a[href*="certifications.html"], .nav-contact'));
+}
 (async () => {
   let dictionary;
   try {
@@ -99,7 +107,7 @@
     });
     document.querySelectorAll('a[href]').forEach((anchor) => {
       const url = new URL(anchor.getAttribute('href'), document.baseURI);
-      if (url.origin === location.origin && /\/(index|project|certifications)\.html$/.test(url.pathname)) {
+      if (url.origin === location.origin && /\/(index|project|certifications|cv)\.html$/.test(url.pathname)) {
         url.searchParams.set('lang', language);
         anchor.href = url.href;
       }
