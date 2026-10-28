@@ -162,5 +162,16 @@
   "Am organizat cerințe tehnice pentru un player multimedia Windows/Android și o platformă de publicare și analiză video, inclusiv gestionarea mai multor conturi și extinderea prin module. Nu există încă implementări.": "I organised technical requirements for a Windows/Android media player and a video publishing and analytics platform, including multiple account management and modular extensions. These projects have not yet been implemented.",
   "Aplicație Android modulară pentru utilizarea modelelor AI locale și prin API, gestionarea proiectelor și conversațiilor, cu suport pentru agenți AI, automatizări și extensibilitate prin pluginuri. Proiect aflat în dezvoltare activă, în etapa Alpha.": "A modular Android application for using local AI models and APIs and managing projects and conversations. It supports AI agents, automation and extensions through plugins. The project is in active development at the alpha stage.",
   "Proiect de design grafic pentru cărți de vizită. Am realizat aspectul vizual și aranjarea informațiilor într-un format clar și ușor de citit. Designul este finalizat.": "A graphic design project for business cards. I designed the visual layout and arranged the information to make it clear and easy to read. The design is complete.",
-  "Am investigat un robot de bucătărie care nu mai toca, deși motorul funcționa. Am demontat aparatul, am identificat o roată dințată ruptă în mecanismul de transmisie și am reparat robotul de bucătărie.": "I investigated a food processor that no longer chopped even though its motor was running. I took it apart, identified a broken gear in the drive mechanism and repaired the appliance."
+  "Am investigat un robot de bucătărie care nu mai toca, deși motorul funcționa. Am demontat aparatul, am identificat o roată dințată ruptă în mecanismul de transmisie și am reparat robotul de bucătărie.": "I investigated a food processor that no longer chopped even though its motor was running. I took it apart, identified a broken gear in the drive mechanism and repaired the appliance.",
+  "Certificări": "Certifications",
+  "Certificări obținute și documentele de verificare disponibile.": "Earned certifications and available verification documents.",
+  "Sari la certificări": "Skip to certifications",
+  "Înapoi la portofoliu": "Back to portfolio",
+  "Pregătire profesională": "Professional development",
+  "Se încarcă certificările…": "Loading certifications…",
+  "Nu am încă certificări": "No certifications yet",
+  "Voi adăuga aici certificările obținute, împreună cu detaliile și documentele de verificare disponibile.": "I will add certifications here as I earn them, along with the relevant details and available verification documents.",
+  "Verifică certificarea": "Verify certification",
+  "Deschide certificatul": "View certificate",
+  "Lista certificărilor nu a putut fi încărcată. Încearcă din nou mai târziu.": "The certification list could not be loaded. Please try again later."
 }
