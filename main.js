@@ -373,5 +373,14 @@ Promise.all([
     renderSummary(activityList, [], 'Lista de proiecte nu s-a încărcat.', '');
   });
 
+// Certifications are a separate public page, with an editable credential list.
+const portfolioNav = document.querySelector('.site-header nav');
+if (portfolioNav && !portfolioNav.querySelector('a[href*="certifications.html"]')) {
+  const certificatesLink = document.createElement('a');
+  certificatesLink.href = 'certifications.html';
+  certificatesLink.textContent = 'Certificări';
+  portfolioNav.insertBefore(certificatesLink, portfolioNav.querySelector('.nav-contact'));
+}
+
 // Load the shared language selector for the public portfolio.
 import('./i18n.js').catch((error) => console.warn('Language selector unavailable:', error));
